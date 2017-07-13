@@ -1,7 +1,11 @@
+package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class OlxLogin {
+
+//    private EditText  editText=new EditText("xpath");
 
     private By userName = By.id("userEmail");
     private By password = By.id("userPass");
@@ -20,6 +24,7 @@ public class OlxLogin {
     }*/
 
     public void setUserName(String strUserName){
+//        editText.setText(strUserName);
         driver.findElement(userName).sendKeys(strUserName);
     }
 
