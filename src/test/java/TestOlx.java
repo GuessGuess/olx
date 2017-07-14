@@ -15,8 +15,10 @@ public class TestOlx extends UpTestBase{
 
     @Test
     public void testHomePageLogin(){
+
         getOlxHomePage().clickEnter();
-        objLogin.loginToOlx("bort7007@gmail.com", "qwe123asd");
+        getOlxLogin().loginToOlx("bort7007@gmail.com", "qwe123asd");
+   //     objLogin.loginToOlx("bort7007@gmail.com", "qwe123asd");
         //objHomePage = new pages.OlxHomePage(driver);
         Assert.assertTrue(getOlxHomePage().getHomePageName().toLowerCase().contains("bort7007"));
     }

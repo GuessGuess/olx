@@ -40,4 +40,10 @@ public class Element {
         return size == 0 ? false : true;
     }
 
+    public void sendKeys(String strUserName) {
+        if (isVisible()){
+            driver.findElement(locator).sendKeys();
+        } else
+            throw new ElementNotFoundException("Element " + locator + " not found", "", "");
+    }
 }

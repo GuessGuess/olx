@@ -3,6 +3,7 @@ package managers;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import pages.OlxHomePage;
+import pages.OlxLogin;
 
 public class UpTestBase extends InitDriver{
 
@@ -20,5 +21,9 @@ public class UpTestBase extends InitDriver{
 
     public OlxHomePage getOlxHomePage(){
         return OlxHomePage.get();
+    }
+
+    public OlxLogin getOlxLogin(){
+        return OlxLogin.get();
     }
 }
