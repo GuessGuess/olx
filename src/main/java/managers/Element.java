@@ -46,4 +46,13 @@ public class Element {
         } else
             throw new ElementNotFoundException("Element " + locator + " not found", "", "");
     }
+
+    public boolean isDisplayed(){
+        if(isVisible()){
+            driver.findElement(locator).isDisplayed();
+        }
+        else
+            throw new ElementNotFoundException("Element " + locator + " not found", "", "");
+        return false;
+    }
 }

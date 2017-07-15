@@ -1,24 +1,42 @@
 package pages;
 
+import managers.Element;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class OlxSearchPage {
-    private By headerSearch = By.id("headerSearch");
-    private By serchButton = By.id("submit-searchmain");
-    private By cityField = By.xpath(".//*[@id='cityField']");
-    private By searchResult = By.cssSelector(".promoted-list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1) > strong:nth-child(1)");
-    private By highlight = By.cssSelector(".highlight-close");
+    private static OlxSearchPage instance;
 
-    WebDriver driver;
+    private Element search;
+    private Element cityField;
+    private Element serchButton;
+    private Element searchResult;
+    private Element highlight;
+
+
+
+    public static OlxSearchPage get(){
+        if(instance == null){
+            instance = new OlxSearchPage().init();
+        }
+        return instance;
+    }
+
+    protected OlxSearchPage init(){
+        search = new Element(By.id("headerSearch"));
+        cityField = new Element(By.id("submit-searchmain"));
+        serchButton = new Element(By.id("submit-searchmain"));
+        searchResult = new Element(By.cssSelector(".promoted-list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1) > strong:nth-child(1)"));
+        highlight = new Element(By.cssSelector(".highlight-close"));
+        return this;
+    }
 
     public void highlightOff(){
-        if (this.driver.findElement(highlight).isDisplayed()){
-            this.driver.findElement(highlight).click();
+        if (highlight.isDisplayed()){
+            highlight.click();
         }
     }
 
-    public OlxSearchPage(WebDriver driver){
+  /*  public OlxSearchPage(WebDriver driver){
         this.driver = driver;
     }
 
@@ -49,4 +67,5 @@ public class OlxSearchPage {
 
         this.clickSerchButton();
     }
+ */
 }

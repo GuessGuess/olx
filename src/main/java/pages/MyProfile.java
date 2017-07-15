@@ -2,24 +2,31 @@ package pages;
 
 import managers.Element;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public class MyProfile {
-    private Element logout = new Element(By.xpath(".//*[@id='login-box-logout']/span/span"));
-    private Element exit = new Element(By.xpath(""));
+    private static MyProfile instance;
 
-    WebDriver driver;
+    private Element profileMenu;
+    private Element exit;
 
-    public MyProfile(WebDriver driver){
-        this.driver = driver;
+    public static MyProfile get(){
+        if(instance == null){
+            instance = new MyProfile().init();
+        }
+        return instance;
+    }
+
+    protected MyProfile init(){
+        profileMenu = new Element(By.xpath(".//*[@id='topLoginLink']/span/strong"));
+        exit = new Element(By.xpath(".//*[@id='login-box-logout']/span/span"));
+        return this;
+    }
+    public String getMyProfileMenuName(){
+        return profileMenu.getText();
     }
 
     public void clickLogout(){
-        logout.moveToElement();
+        profileMenu.moveToElement();
         exit.click();
-
-//        this.driver.findElement(logout).click();
     }
 }

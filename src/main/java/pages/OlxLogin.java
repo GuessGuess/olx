@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 public class OlxLogin {
     private static OlxLogin instance;
 
-//    private EditText  editText=new EditText("xpath");
-
     private Element userName;
     private Element password;
     private Element login;
@@ -28,21 +26,7 @@ public class OlxLogin {
         return this;
     }
 
-  //  private By userName = By.id("userEmail");
-  //  private By password = By.id("userPass");
-  //  private By login = By.id("se_userLogin");
-    //private By enter = By.xpath(".//*[@id='topLoginLink']/span/strong");
 
-
- //   WebDriver driver;
-
-  //  public OlxLogin(WebDriver driver){
-  //      this.driver = driver;
-  //  }
-
-    /*public void clickEnter(){
-        driver.findElement(enter).click();
-    }*/
 
     public void setUserName(String strUserName){
         userName.sendKeys(strUserName);
@@ -57,7 +41,6 @@ public class OlxLogin {
     }
 
     public void loginToOlx(String strUserName, String strPassword){
-        //this.clickEnter();
         this.setUserName(strUserName);
         this.setPassword(strPassword);
         this.clickLogin();

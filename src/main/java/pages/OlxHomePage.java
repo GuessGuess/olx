@@ -2,12 +2,10 @@ package pages;
 
 import managers.Element;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class OlxHomePage {
     private static OlxHomePage instance;
 
-    private Element homePageName;
     private Element enter;
     private Element mainOlx;
 
@@ -20,15 +18,9 @@ public class OlxHomePage {
     }
 
     protected OlxHomePage init(){
-        homePageName = new Element(By.xpath(".//*[@id='topLoginLink']/span/strong"));
         enter = new Element(By.xpath(".//*[@id='topLoginLink']/span/strong"));
         mainOlx = new Element(By.id("headerLogo"));
         return this;
-    }
-
-
-    public String getHomePageName(){
-        return homePageName.getText();
     }
 
     public void clickEnter(){
