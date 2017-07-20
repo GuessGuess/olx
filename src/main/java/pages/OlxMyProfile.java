@@ -3,20 +3,20 @@ package pages;
 import managers.Element;
 import org.openqa.selenium.By;
 
-public class MyProfile {
-    private static MyProfile instance;
+public class OlxMyProfile {
+    private static OlxMyProfile instance;
 
     private Element profileMenu;
     private Element exit;
 
-    public static MyProfile get(){
+    public static OlxMyProfile get(){
         if(instance == null){
-            instance = new MyProfile().init();
+            instance = new OlxMyProfile().init();
         }
         return instance;
     }
 
-    protected MyProfile init(){
+    protected OlxMyProfile init(){
         profileMenu = new Element(By.xpath(".//*[@id='topLoginLink']/span/strong"));
         exit = new Element(By.xpath(".//*[@id='login-box-logout']/span/span"));
         return this;

@@ -16,7 +16,7 @@ public class InitDriver {
         return instance;
     }
 
-    private InitDriver init(){
+    protected InitDriver init(){
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Алла\\Desktop\\geckodriver-v0.17.0-win64\\geckodriver.exe");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class OlxSearchPage {
     private static OlxSearchPage instance;
 
-    private Element search;
+    private Element searchText;
     private Element cityField;
     private Element serchButton;
     private Element searchResult;
@@ -22,50 +22,49 @@ public class OlxSearchPage {
     }
 
     protected OlxSearchPage init(){
-        search = new Element(By.id("headerSearch"));
-        cityField = new Element(By.id("submit-searchmain"));
-        serchButton = new Element(By.id("submit-searchmain"));
-        searchResult = new Element(By.cssSelector(".promoted-list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > h3:nth-child(1) > a:nth-child(1) > strong:nth-child(1)"));
+        searchText = new Element(By.id("search-text"));
+        cityField = new Element(By.id("cityField"));
+        serchButton = new Element(By.id("search-submit"));
+        searchResult = new Element(By.cssSelector("a.marginright5 > strong:nth-child(1)"));
         highlight = new Element(By.cssSelector(".highlight-close"));
         return this;
     }
 
     public void highlightOff(){
-        if (highlight.isDisplayed()){
-            highlight.click();
-        }
+        highlight.click();
     }
 
-  /*  public OlxSearchPage(WebDriver driver){
-        this.driver = driver;
-    }
-
-    public String getSearchResult(){
-        return driver.findElement(searchResult).getText();
-    }
-
-    public void setHeaderSearch(String strHeaderSearch){
-        this.driver.findElement(headerSearch).sendKeys(strHeaderSearch);
+    public void setSearchText(String strSearchText){
+        searchText.clear();
+        searchText.sendKeys(strSearchText);
     }
 
     public void setCityField(String strCityField){
-        this.driver.findElement(cityField).sendKeys(strCityField);
+        cityField.clear();
+        cityField.sendKeys(strCityField);
     }
 
     public void clickSerchButton(){
-        this.driver.findElement(serchButton).click();
+        serchButton.click();
     }
 
-    public void yourSearch(String strHeaderSearch, String strCityField){
-        this.setHeaderSearch(strHeaderSearch);
-        this.setCityField(strCityField);
-        this.clickSerchButton();
+    public void yourSearch(String strSearchText, String strCityField){
+        setSearchText(strSearchText);
+        setCityField(strCityField);
+        clickSerchButton();
     }
 
-    public void yourSearch(String strHeaderSearch){
-        this.setHeaderSearch(strHeaderSearch);
-
-        this.clickSerchButton();
+    public void yourSearch(String strSearchText){
+        setSearchText(strSearchText);
+        clickSerchButton();
     }
- */
+
+    public String getSearchResult(){
+        return searchResult.getText();
+    }
+
+
+
+
+
 }

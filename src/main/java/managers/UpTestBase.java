@@ -4,19 +4,20 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import pages.OlxHomePage;
 import pages.OlxLogin;
+import pages.OlxMyProfile;
+import pages.OlxSearchPage;
 
 public class UpTestBase extends InitDriver{
 
     @BeforeTest
     public void setUp(){
-        InitDriver.get();
-        driver.get("https://www.olx.ua/");
-        System.out.println(driver.getTitle());
+        getInitDriver().getDriver().get("https://www.olx.ua/");
+        System.out.println(getInitDriver().getDriver().getTitle());
     }
 
     @AfterTest
     public void Close(){
-        driver.quit();
+        getInitDriver().getDriver().quit();
     }
 
     public OlxHomePage getOlxHomePage(){
@@ -25,5 +26,17 @@ public class UpTestBase extends InitDriver{
 
     public OlxLogin getOlxLogin(){
         return OlxLogin.get();
+    }
+
+    public OlxMyProfile getOlxMyProfile(){
+        return OlxMyProfile.get();
+    }
+
+    public OlxSearchPage getOlxSearchPage(){
+        return OlxSearchPage.get();
+    }
+
+    public InitDriver getInitDriver(){
+        return InitDriver.get();
     }
 }

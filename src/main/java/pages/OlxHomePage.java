@@ -8,6 +8,7 @@ public class OlxHomePage {
 
     private Element enter;
     private Element mainOlx;
+    private Element mainSearchButton;
 
 
     public static OlxHomePage get(){
@@ -20,6 +21,7 @@ public class OlxHomePage {
     protected OlxHomePage init(){
         enter = new Element(By.xpath(".//*[@id='topLoginLink']/span/strong"));
         mainOlx = new Element(By.id("headerLogo"));
+        mainSearchButton = new Element(By.id("submit-searchmain"));
         return this;
     }
 
@@ -31,4 +33,11 @@ public class OlxHomePage {
         mainOlx.click();
     }
 
+    public void clickMainSearchButton(){
+        mainSearchButton.click();
+    }
+
+    public String getOlxHomePageName(){
+        return enter.getText();
+    }
 }
